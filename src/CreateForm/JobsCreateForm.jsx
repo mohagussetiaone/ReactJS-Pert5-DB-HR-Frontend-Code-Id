@@ -8,14 +8,8 @@ export default function JobsCreateForm(props) {
     minSalary: undefined,
     maxSalary: undefined,
   });
-  const HandleChange = (jobId, jobTitle, minSalary, maxSalary) => (event) => {
-    setValue({
-      ...value,
-      [jobId]: event.target.value,
-      [jobTitle]: event.target.value,
-      [minSalary]: event.target.value,
-      [maxSalary]: event.target.value,
-    });
+  const HandleChange = (Alljobs) => (event) => {
+    setValue({ ...value, [Alljobs]: event.target.value });
   };
   const onSubmit = async () => {
     const payload = {
@@ -24,6 +18,7 @@ export default function JobsCreateForm(props) {
       minSalary: value.minSalary,
       maxSalary: value.maxSalary,
     };
+    console.log(payload);
     await JobsApi.addJobs(payload).then(() => {
       props.setRefresh(true);
       window.alert("Data Success Insert");

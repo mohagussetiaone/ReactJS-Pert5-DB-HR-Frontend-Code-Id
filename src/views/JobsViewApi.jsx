@@ -32,7 +32,7 @@ export default function JobsViewApi() {
   return (
     <div>
       {displayEdit ? (
-        <JobsEditForm id={id} setRefresh={setRefresh} />
+        <JobsEditForm id={id} setRefresh={setRefresh} setDisplay={setDisplay} />
       ) : display ? (
         <JobsCreateForm setRefresh={setRefresh} setDisplay={setDisplay} />
       ) : (
@@ -54,8 +54,8 @@ export default function JobsViewApi() {
                       <td>{e.minSalary}</td>
                       <td>{e.maxSalary}</td>
                       <td>
-                        <button onClick={() => onDelete(e.jobId)}>delete</button>
-                        <button onClick={() => onClick(e.departmentId)}>Edit Jobs</button>
+                        <button onClick={() => onDelete(e.jobId)}>Delete</button>
+                        <button onClick={() => onClick(e.jobId)}>Edit Jobs</button>
                       </td>
                     </tr>
                   );

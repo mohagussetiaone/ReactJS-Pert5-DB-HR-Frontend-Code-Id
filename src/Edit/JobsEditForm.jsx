@@ -4,7 +4,7 @@ import JobsApi from "../api/JobsApi";
 export default function JobsEditForm(props) {
   const [jobs, setJobs] = useState([]);
   const [values, setValue] = useState({
-    jobId: undefined,
+    id: undefined,
     jobTitle: undefined,
     minSalary: undefined,
     maxSalary: undefined,
@@ -13,17 +13,12 @@ export default function JobsEditForm(props) {
   useEffect(() => {
     JobsApi.findOneJobs(props.id).then((data) => {
       setJobs(data);
+      console.log(jobs);
     });
   }, []);
 
-  const HandleChange = (jobId, jobTitle, minSalary, maxSalary) => (event) => {
-    setValue({
-      ...jobs,
-      [jobId]: event.target.value,
-      [jobTitle]: event.target.value,
-      [minSalary]: event.target.value,
-      [maxSalary]: event.target.value,
-    });
+  const HandleChange = (Alljobs) => (event) => {
+    setValue({ ...values, [Alljobs]: event.target.value });
   };
 
   const onEdit = async () => {
@@ -33,6 +28,7 @@ export default function JobsEditForm(props) {
       minSalary: values.minSalary,
       maxSalary: values.maxSalary,
     };
+    console.log(jobs);
     await JobsApi.updateJobs(payload).then(() => {
       props.setRefresh(true);
       window.alert("Data Successfully Updated");
@@ -45,7 +41,7 @@ export default function JobsEditForm(props) {
       <form onSubmit={onEdit}>
         <div>
           <label>Job ID :</label>
-          <input type="text" defaultValue={jobs.jobsId} disabled></input>
+          <input type="text" defaultValue={jobs.jobId} disabled></input>
         </div>
         <div>
           <label>Job Title : </label>

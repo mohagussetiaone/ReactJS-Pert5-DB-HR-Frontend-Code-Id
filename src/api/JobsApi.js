@@ -29,7 +29,7 @@ const addJobs = async (payload) => {
 
 const updateJobs = async (data) => {
   try {
-    const result = await axios.put(`${config.domain}/jobs/${data.id}`, data);
+    const result = await axios.put(`${config.domain}/jobs/${data.jobId}`, data);
     return result;
   } catch (error) {
     return await error.message;

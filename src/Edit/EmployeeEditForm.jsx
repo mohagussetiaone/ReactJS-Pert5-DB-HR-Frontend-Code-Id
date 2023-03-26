@@ -24,7 +24,7 @@ export default function EmployeeEditForm(props) {
   }, []);
 
   const HandleChange = (Employees) => (event) => {
-    setValue({ ...employee, [Employees]: event.target.value });
+    setValue({ ...values, [Employees]: event.target.value });
   };
 
   const onEdit = async () => {
@@ -93,7 +93,7 @@ export default function EmployeeEditForm(props) {
         </div>
         <div>
           <label>Department ID: </label>
-          <input type="text" defaultValue={employee.department ? employee.department.departmentId : "null"} onChange={HandleChange("departmentId")}></input>
+          <input type="text" defaultValue={employee.department ? employee.department.departmentId : null} onChange={HandleChange("departmentId")}></input>
         </div>
         <div>
           <button type="submit">Simpan</button>

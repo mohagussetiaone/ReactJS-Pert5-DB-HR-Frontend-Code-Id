@@ -32,7 +32,7 @@ export default function LocationsViewApi() {
   return (
     <div>
       {displayEdit ? (
-        <LocationEditForm id={id} setRefresh={setRefresh} />
+        <LocationEditForm id={id} setRefresh={setRefresh} setDisplay={setDisplay} />
       ) : display ? (
         <LocationsCreateForm setRefresh={setRefresh} setDisplay={setDisplay} />
       ) : (
@@ -55,8 +55,8 @@ export default function LocationsViewApi() {
                       <td>{e.streetAddress}</td>
                       <td>{e.postalCode}</td>
                       <td>{e.city}</td>
-                      <td>{e.stateProvince}</td>
-                      <td>{e.countryId}</td>
+                      <td>{e.stateProvince ? e.stateProvince : "null"}</td>
+                      <td>{e.country ? e.country.countryId : "null"}</td>
                       <td>
                         <button onClick={() => onDelete(e.locationId)}>Delete</button>
                         <button onClick={() => onClick(e.locationId)}>Edit Locations</button>

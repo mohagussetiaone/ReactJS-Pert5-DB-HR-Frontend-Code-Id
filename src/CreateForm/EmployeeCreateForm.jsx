@@ -32,6 +32,7 @@ export default function EmployeeCreateForm(props) {
       managerId: value.managerId,
       departmentId: value.departmentId,
     };
+    console.log(payload);
     await EmployeesApi.addEmployees(payload).then(() => {
       props.setRefresh(true);
       window.alert("Data Success Insert");

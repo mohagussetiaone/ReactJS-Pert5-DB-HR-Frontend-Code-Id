@@ -9,15 +9,8 @@ export default function LocationsCreateForm(props) {
     stateProvince: undefined,
     countryId: undefined,
   });
-  const HandleChange = (streetAddress, postalCode, city, stateProvince, countryId) => (event) => {
-    setValue({
-      ...value,
-      [streetAddress]: event.target.value,
-      [postalCode]: event.target.value,
-      [city]: event.target.value,
-      [stateProvince]: event.target.value,
-      [countryId]: event.target.value,
-    });
+  const HandleChange = (AllLocations) => (event) => {
+    setValue({ ...value, [AllLocations]: event.target.value });
   };
   const onSubmit = async () => {
     const payload = {
@@ -25,7 +18,7 @@ export default function LocationsCreateForm(props) {
       postalCode: value.postalCode,
       city: value.city,
       stateProvince: value.stateProvince,
-      countryId: value.countryId,
+      country: value.countryId,
     };
     await LocationsApi.addLocations(payload).then(() => {
       props.setRefresh(true);
