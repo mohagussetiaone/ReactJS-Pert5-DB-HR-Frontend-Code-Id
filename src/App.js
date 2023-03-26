@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// import { Routes, Route } from "react-router-dom";
+// import RegionViewApi from "./views/RegionViewApi";
+// import CountriesViewApi from "./views/CountriesViewApi";
+// import DepartmentViewApi from "./views/DepartmentViewApi";
+// import JobsViewApi from "./views/JobsViewApi";
+// import LocationsViewApi from "./views/LocationsViewApi";
+// import EmployeeViewApi from "./views/EmployeesApi";
+// import Dashboard from "./pages/Dashboard";
+import Route from "./routes/Routes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Route />
+    // <Routes>
+    //   <Route path="/" element={<Dashboard />} />
+    //   <Route path="/region" element={<RegionViewApi />} />
+    //   <Route path="/countrie" element={<CountriesViewApi />} />
+    //   <Route path="/department" element={<DepartmentViewApi />} />
+    //   <Route path="/employee" element={<EmployeeViewApi />} />
+    //   <Route path="/jobs" element={<JobsViewApi />} />
+    //   <Route path="/location" element={<LocationsViewApi />} />
+    // </Routes>
   );
 }
 
